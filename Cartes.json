@@ -1,0 +1,19 @@
+[
+    {
+        "type" : "pnj",
+        "name" : "Survivant",
+        "cost" : 1,
+        "vie" : 1
+    },
+    {
+        "type" : "bat",
+        "name" : "Hall",
+        "cost" : 1,
+        "vie" : 1
+    },
+    {
+        "type" : "event",
+        "name" : "Decouverte",
+        "cost" : 1
+    }
+]

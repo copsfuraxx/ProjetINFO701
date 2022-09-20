@@ -8,9 +8,38 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Card",
+"class": "BatCard",
+"language": "GDScript",
+"path": "res://Carte/BatCarte.gd"
+}, {
+"base": "Reference",
+"class": "Card",
+"language": "GDScript",
+"path": "res://Carte/Carte.gd"
+}, {
+"base": "Card",
+"class": "EventCard",
+"language": "GDScript",
+"path": "res://Carte/EventCarte.gd"
+}, {
+"base": "Card",
+"class": "PNJCard",
+"language": "GDScript",
+"path": "res://Carte/PNJCarte.gd"
+} ]
+_global_script_class_icons={
+"BatCard": "",
+"Card": "",
+"EventCard": "",
+"PNJCard": ""
+}
+
 [application]
 
 config/name="ProjetINFO701"
+run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
 [physics]
