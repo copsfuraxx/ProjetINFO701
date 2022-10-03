@@ -1,15 +1,17 @@
 [
     {
         "type" : "pnj",
-        "name" : "Survivant",
+        "name" : "Survivant avec\nun tres\ngrand nom",
         "cost" : 1,
-        "vie" : 1
+        "vie" : 1,
+        "img" : "survivor.png"
     },
     {
         "type" : "bat",
         "name" : "Hall",
         "cost" : 1,
-        "vie" : 1
+        "vie" : 1,
+        "img" : "base.png"
     },
     {
         "type" : "event",

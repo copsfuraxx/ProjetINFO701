@@ -17,7 +17,7 @@ _global_script_classes=[ {
 "base": "Reference",
 "class": "Card",
 "language": "GDScript",
-"path": "res://Carte/Carte.gd"
+"path": "res://Carte/ClassCarte.gd"
 }, {
 "base": "Card",
 "class": "EventCard",
@@ -41,6 +41,20 @@ _global_script_class_icons={
 config/name="ProjetINFO701"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=1080
+window/size/height=2310
+window/handheld/orientation="portrait"
+
+[input]
+
+click={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
 
 [physics]
 

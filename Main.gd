@@ -2,6 +2,7 @@ extends Spatial
 
 var path = "res://Cartes.json"
 var deck: Array = []
+onready var scene = preload("res://Carte/Carte.tscn")
 
 func _ready():
 	var data_file = File.new()
@@ -17,12 +18,15 @@ func _ready():
 	
 	for carte in data:
 		if(carte["type"] == "pnj"):
-			deck.append(PNJCard.new(id, carte["name"], carte["cost"], carte["vie"]))
+			deck.append(PNJCard.new(id, carte["name"], carte["cost"], carte["vie"], carte["img"]))
 		elif(carte["type"] == "bat"):
-			deck.append(BatCard.new(id, carte["name"], carte["cost"], carte["vie"]))
+			deck.append(BatCard.new(id, carte["name"], carte["cost"], carte["vie"], carte["img"]))
 		elif(carte["type"] == "event"):
-			deck.append(BatCard.new(id, carte["name"], carte["cost"]))
+			deck.append(EventCard.new(id, carte["name"], carte["cost"]))
 		id += 1
-		
-	for carte in data:
-		print_debug(carte)
+	var x = -0.6
+	for carte in deck:
+		var c = scene.instance()
+		c.setCard(carte, x, -1.25)
+		x+= 0.6
+		add_child(c)
