@@ -1,12 +1,11 @@
 extends Camera
 
-enum Etat{ Main, Carte_Selected}
+enum Etat{ Main, Carte_Selected, Sleep, Awake}
 
 var ray
 var triger = false
 var timer = .0
 var mouse_position
-var mouse_origin
 var card
 var etat
 
@@ -16,6 +15,8 @@ func _ready():
 	etat = Etat.Main
 
 func _input(event):
+	if(etat == Etat.Sleep):
+		return
 	if Input.is_action_just_pressed("click") :
 		var to = project_ray_normal(event.position) * 10
 		ray.cast_to = to
@@ -28,10 +29,11 @@ func _input(event):
 		else:
 			card = null
 	if Input.is_action_pressed("click"):
-		mouse_origin = project_ray_origin(event.position)
-		mouse_position = mouse_origin +  project_ray_normal(event.position)
+		mouse_position = translation + project_ray_normal(event.position)
 
 func _physics_process(delta):
+	if(etat == Etat.Sleep):
+		return
 	if etat == Etat.Main:
 		drag(delta)
 	elif etat == Etat.Carte_Selected:
@@ -39,10 +41,12 @@ func _physics_process(delta):
 			var o = ray.get_collider()
 			if o.is_in_group("Button"):
 				if o.is_in_group("Oui"):
-					print_debug("oui")
+					$"..".visible = false
+					etat = Etat.Sleep
+					$"../../Camp/Camera".wakeup(load("res://Maison.tscn").instance())
 				reset()
 			elif o.is_in_group("Carte"):
-				card.reset()
+				card.reset(o != card)
 				card = null
 				etat = Etat.Main
 				$"../MenuSelect".visible = false
@@ -58,7 +62,7 @@ func drag(delta):
 		triger = true
 		timer = 0
 	if triger and timer > 0.1:
-		var p = mouse_position * mouse_origin.distance_to(card.translation)
+		var p = mouse_position * translation.distance_to(card.translation)
 		card.translation = Vector3(p.x, p.y, card.translation.z)
 	elif triger:
 		timer += delta

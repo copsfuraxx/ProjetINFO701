@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/survivor.png-b0a3e951e48860f232f7c03f1dfb453b.s3tc.stex"
-path.etc2="res://.import/survivor.png-b0a3e951e48860f232f7c03f1dfb453b.etc2.stex"
+path.s3tc="res://.import/carte.png-883a01c1465d048b7864571af5d81e0c.s3tc.stex"
+path.etc2="res://.import/carte.png-883a01c1465d048b7864571af5d81e0c.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://survivor.png"
-dest_files=[ "res://.import/survivor.png-b0a3e951e48860f232f7c03f1dfb453b.s3tc.stex", "res://.import/survivor.png-b0a3e951e48860f232f7c03f1dfb453b.etc2.stex" ]
+source_file="res://Carte/carte.png"
+dest_files=[ "res://.import/carte.png-883a01c1465d048b7864571af5d81e0c.s3tc.stex", "res://.import/carte.png-883a01c1465d048b7864571af5d81e0c.etc2.stex" ]
 
 [params]
 

@@ -11,7 +11,7 @@ func setCard(_cart:Card, x:float, y:float):
 	pos_ini = translation
 	$Label3D.text = cart.cardName
 	if cart.img != "null":
-		$Sprite3D2.texture = load("res://" + cart.img)
+		$Sprite3D2.texture = load("res://Carte/" + cart.img)
 
 func drag():
 	$Sprite3D.render_priority += 2
@@ -37,7 +37,7 @@ func drop():
 		translation = pos_ini
 		return 2
 
-func reset():
+func reset(position = true):
 	scale = Vector3(.5,.5,.5)
 	$Sprite3D.render_priority -= 2
 	$Label3D.render_priority -= 2
@@ -45,4 +45,5 @@ func reset():
 	$Sprite3D2.render_priority -= 2
 	$Label3D2.render_priority -= 2
 	$Label3D2.outline_render_priority -= 2
-	translation = pos_ini
+	if position :
+		translation = pos_ini

@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Carte/Carte.gd" type="Script" id=1]
-[ext_resource path="res://survivor.png" type="Texture" id=2]
-[ext_resource path="res://carte.png" type="Texture" id=3]
+[ext_resource path="res://Carte/survivor.png" type="Texture" id=2]
+[ext_resource path="res://Carte/carte.png" type="Texture" id=3]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.5, 1, 0.01 )
