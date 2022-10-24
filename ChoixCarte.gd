@@ -29,4 +29,5 @@ func _ready():
 		var c = scene.instance()
 		c.setCard(carte, x, -1.25)
 		x+= 0.6
-		add_child(c)
+		$"../".call_deferred("add_child", c)
+	$"../".call_deferred("remove_child", self)

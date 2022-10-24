@@ -6,7 +6,6 @@
 [ext_resource path="res://ChoixCarte.gd" type="Script" id=4]
 
 [node name="ChoixCarte" type="Spatial"]
-script = ExtResource( 4 )
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3 )
@@ -23,3 +22,6 @@ transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.55, 0.2, 0 )
 
 [node name="Valider" parent="MenuSelect" instance=ExtResource( 1 )]
 transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.55, 0.9, 0 )
+
+[node name="Init" type="Spatial" parent="."]
+script = ExtResource( 4 )
