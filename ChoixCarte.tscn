@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Valider.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Annuler.tscn" type="PackedScene" id=2]
 [ext_resource path="res://CameraCarte.gd" type="Script" id=3]
 [ext_resource path="res://ChoixCarte.gd" type="Script" id=4]
+[ext_resource path="res://GUI.tscn" type="PackedScene" id=5]
+
+[sub_resource type="ViewportTexture" id=1]
+viewport_path = NodePath("Camera/Viewport")
 
 [node name="ChoixCarte" type="Spatial"]
 
@@ -13,6 +17,17 @@ current = true
 script = ExtResource( 3 )
 
 [node name="RayCast" type="RayCast" parent="Camera"]
+
+[node name="Viewport" type="Viewport" parent="Camera"]
+size = Vector2( 1080, 2310 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="GUI" parent="Camera/Viewport" instance=ExtResource( 5 )]
+
+[node name="Sprite3D" type="Sprite3D" parent="Camera"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16.7621 )
+texture = SubResource( 1 )
 
 [node name="MenuSelect" type="Spatial" parent="."]
 visible = false

@@ -17,7 +17,7 @@ func _ready():
 
 func _input(event):
 	if event is InputEventScreenDrag:
-		translate(Vector3(-event.relative.x / 100, event.relative.y / 100, .0))
+		translate(Vector3(-event.relative.x / 300, event.relative.y / 300, .0))
 		draged = true
 	elif event is InputEventScreenTouch and !event.is_pressed():
 		if draged:

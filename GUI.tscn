@@ -1,0 +1,95 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/Homme.png" type="Texture" id=1]
+[ext_resource path="res://Assets/PixelFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Assets/Bois.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Pomme.png" type="Texture" id=4]
+[ext_resource path="res://GUI.gd" type="Script" id=5]
+
+[node name="GUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+margin_bottom = 126.0
+color = Color( 0, 0, 0, 0.247059 )
+
+[node name="Control" type="Control" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -540.0
+margin_right = -180.0
+margin_bottom = 126.0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -130.0
+margin_bottom = 126.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="Control"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_right = 270.0
+margin_bottom = 126.0
+custom_fonts/font = ExtResource( 2 )
+text = "10"
+valign = 1
+autowrap = true
+
+[node name="Control2" type="Control" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -180.0
+margin_right = 180.0
+margin_bottom = 126.0
+
+[node name="TextureRect" type="TextureRect" parent="Control2"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -171.0
+margin_bottom = 126.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="Control2"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_right = 270.0
+margin_bottom = 126.0
+custom_fonts/font = ExtResource( 2 )
+text = "100"
+valign = 1
+autowrap = true
+
+[node name="Control3" type="Control" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 180.0
+margin_right = 540.0
+margin_bottom = 126.0
+
+[node name="TextureRect" type="TextureRect" parent="Control3"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -171.0
+margin_bottom = 126.0
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="Control3"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_right = 270.0
+margin_bottom = 126.0
+custom_fonts/font = ExtResource( 2 )
+text = "100"
+valign = 1
+autowrap = true

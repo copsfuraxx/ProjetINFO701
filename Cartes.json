@@ -3,7 +3,7 @@
         "type" : "pnj",
         "name" : "Survivant avec\nun tres\ngrand nom",
         "cost" : 1,
-        "vie" : 1,
+        "nbr" : 5,
         "img" : "survivor.png"
     },
     {

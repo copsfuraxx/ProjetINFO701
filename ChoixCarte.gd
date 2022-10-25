@@ -18,7 +18,7 @@ func _ready():
 	
 	for carte in data:
 		if(carte["type"] == "pnj"):
-			deck.append(PNJCard.new(id, carte["name"], carte["cost"], carte["vie"], carte["img"]))
+			deck.append(PNJCard.new(id, carte["name"], carte["cost"], carte["nbr"], carte["img"]))
 		elif(carte["type"] == "bat"):
 			deck.append(BatCard.new(id, carte["name"], carte["cost"], carte["vie"], carte["img"]))
 		elif(carte["type"] == "event"):
