@@ -41,11 +41,13 @@ func _physics_process(delta):
 				if card.cart is PNJCard and main.food - card.cart.cost >= 0:
 					main.population += card.cart.nbr
 					main.food -= card.cart.cost
+					reset()
 				else:
 					$"..".visible = false
-					$"../../Camp/Camera".wakeup(load("res://Maison.tscn").instance())
+					var b = load("res://Maison.tscn").instance()
+					b.cart = card.cart
+					$"../../Camp/Camera".wakeup(b)
 					stop()
-				reset()
 			elif o.is_in_group("Carte"):
 				card.reset(o != card)
 				card = null
@@ -79,6 +81,12 @@ func reset():
 	$"../MenuSelect".visible = false
 	ray.enabled = false
 	draged = false
+
+func wakeup():
+	make_current()
+	reset()
+	$"..".visible = true
+	start()
 
 func stop():
 	set_physics_process(false)

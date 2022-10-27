@@ -8,17 +8,21 @@ var mouse_position_past = null
 var click_position
 var etat
 var build
+var case
 var draged = true
+var main
 
 func _ready():
 # Create the RayCast
 	ray = $RayCast
+	main = get_node("/root/Main")
 	stop()
 
 func _input(event):
 	if event is InputEventScreenDrag:
-		translate(Vector3(-event.relative.x / 300, event.relative.y / 300, .0))
-		draged = true
+		if event.relative.length() > 1:
+			translate(Vector3(-event.relative.x / 300, event.relative.y / 300, .0))
+			draged = true
 	elif event is InputEventScreenTouch and !event.is_pressed():
 		if draged:
 			draged = false
@@ -27,18 +31,31 @@ func _input(event):
 			ray.enabled = true
 
 func _physics_process(_delta):
-	if ray.is_colliding() and ray.get_collider().is_in_group("Case"):
-		var case = ray.get_collider()
+	if ray.is_colliding():
 		ray.enabled = false
-		build.translation = case.translation
+		var obj = ray.get_collider()
+		if obj.is_in_group("Case"):
+			build.translation = obj.translation
+			case = obj
+		elif obj.is_in_group("Oui"):
+			main.buildRessource -= build.cart.cost
+			main.population -= build.cart.worker
+			case.queue_free()
+			case = null
+			build = null
+			$MenuSelect.visible = false
+			$"../../ChoixCarte/Camera".wakeup()
+			stop()
 
 func wakeup(b):
 	build = b
 	make_current()
-	build.translation.x = .5
-	build.translation.z = .5
+	case = $"../Node".get_children()[0]
+	build.translation.x = case.translation.x
+	build.translation.z = case.translation.z
 	$"../".add_child(build)
 	#etat = Etat.Awake
+	$MenuSelect.visible = true
 	start()
 
 func stop():

@@ -10,6 +10,7 @@
         "type" : "bat",
         "name" : "Hall",
         "cost" : 1,
+        "worker" : 5,
         "vie" : 1,
         "img" : "base.png"
     },

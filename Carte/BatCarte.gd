@@ -1,10 +1,12 @@
 extends Card
 class_name BatCard
 
+var worker:int
 var vie:int
 
-func _init(id:int = -1, cardName:String = "null", cost:int = 0, _vie:int = 0, _img:String = "null"):
+func _init(id:int = -1, cardName:String = "null", cost:int = 0, _worker:int = 0, _vie:int = 0, _img:String = "null"):
 	._init(id, cardName, cost, _img)
+	worker = _worker
 	vie = _vie
 
 # Called when the node enters the scene tree for the first time.
