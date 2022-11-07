@@ -1,10 +1,27 @@
 [
     {
         "type" : "pnj",
-        "name" : "Survivant avec\nun tres\ngrand nom",
-        "cost" : 1,
+        "name" : " 5 Survivants",
+        "cost" : 5,
         "nbr" : 5,
-        "img" : "survivor.png"
+        "img" : "survivor.png",
+        "nbrCarte" : 1
+    },
+    {
+        "type" : "pnj",
+        "name" : " 1 Survivants",
+        "cost" : 1,
+        "nbr" : 1,
+        "img" : "survivor.png",
+        "nbrCarte" : 10
+    },
+    {
+        "type" : "pnj",
+        "name" : " 2 Survivants",
+        "cost" : 2,
+        "nbr" : 2,
+        "img" : "survivor.png",
+        "nbrCarte" : 5
     },
     {
         "type" : "bat",
@@ -12,11 +29,13 @@
         "cost" : 1,
         "worker" : 5,
         "vie" : 1,
-        "img" : "base.png"
+        "img" : "base.png",
+        "nbrCarte" : 1
     },
     {
         "type" : "event",
         "name" : "Decouverte",
-        "cost" : 1
+        "cost" : 1,
+        "nbrCarte" : 1
     }
 ]

@@ -10,6 +10,8 @@ var card
 var etat = Etat.Main
 var main
 
+onready var scene = preload("res://Carte/Carte.tscn")
+
 func _ready():
 # Create the RayCast
 	ray = $RayCast
@@ -41,6 +43,8 @@ func _physics_process(delta):
 				if card.cart is PNJCard and main.food - card.cart.cost >= 0:
 					main.population += card.cart.nbr
 					main.food -= card.cart.cost
+					card.queue_free()
+					draw()
 					reset()
 				else:
 					$"..".visible = false
@@ -95,3 +99,9 @@ func stop():
 func start():
 	set_physics_process(true)
 	set_process_input(true)
+
+func draw():
+	var c = scene.instance()
+	c.setCard(get_node("/root/Main").deck[0], card.pos_ini.x, -1.25)
+	get_node("/root/Main").deck.remove(0)
+	$"../".add_child(c)
