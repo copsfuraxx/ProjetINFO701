@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/carte.png-883a01c1465d048b7864571af5d81e0c.s3tc.stex"
-path.etc2="res://.import/carte.png-883a01c1465d048b7864571af5d81e0c.etc2.stex"
+path.s3tc="res://.import/dosCarte.png-8fbbca87986b8e6774b8c0853ea90172.s3tc.stex"
+path.etc2="res://.import/dosCarte.png-8fbbca87986b8e6774b8c0853ea90172.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Carte/carte.png"
-dest_files=[ "res://.import/carte.png-883a01c1465d048b7864571af5d81e0c.s3tc.stex", "res://.import/carte.png-883a01c1465d048b7864571af5d81e0c.etc2.stex" ]
+source_file="res://Assets/Carte/dosCarte.png"
+dest_files=[ "res://.import/dosCarte.png-8fbbca87986b8e6774b8c0853ea90172.s3tc.stex", "res://.import/dosCarte.png-8fbbca87986b8e6774b8c0853ea90172.etc2.stex" ]
 
 [params]
 

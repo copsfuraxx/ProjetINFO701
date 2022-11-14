@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Valider.tscn" type="PackedScene" id=1]
-[ext_resource path="res://CameraCamp.gd" type="Script" id=2]
-[ext_resource path="res://GreenCase.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Valider.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/CameraCamp.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/GreenCase.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 100, 2, 100 )

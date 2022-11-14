@@ -1,14 +1,14 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://ChoixCarte.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Camp.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/ChoixCarte.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Camp.tscn" type="PackedScene" id=3]
 
 [node name="Main" type="Spatial"]
 
 [node name="Camp" parent="." instance=ExtResource( 3 )]
 
 [node name="ChoixCarte" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 6 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 8 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0 )

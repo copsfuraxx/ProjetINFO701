@@ -9,7 +9,7 @@
     },
     {
         "type" : "pnj",
-        "name" : " 1 Survivants",
+        "name" : " 1 Survivant",
         "cost" : 1,
         "nbr" : 1,
         "img" : "survivor.png",
@@ -24,13 +24,36 @@
         "nbrCarte" : 5
     },
     {
-        "type" : "bat",
-        "name" : "Hall",
+        "type" : "prod",
+        "name" : "ferme",
         "cost" : 1,
+        "img" : "base.png",
         "worker" : 5,
         "vie" : 1,
+        "prod" : 0,
+        "qtt" : 10,
+        "nbrCarte" : 5
+    },
+    {
+        "type" : "prod",
+        "name" : "usine",
+        "cost" : 1,
         "img" : "base.png",
-        "nbrCarte" : 1
+        "worker" : 5,
+        "vie" : 1,
+        "prod" : 1,
+        "qtt" : 10,
+        "nbrCarte" : 5
+    },
+    {
+        "type" : "fight",
+        "name" : "tour de garde",
+        "cost" : 1,
+        "img" : "base.png",
+        "worker" : 5,
+        "vie" : 1,
+        "degat" : 1,
+        "nbrCarte" : 5
     },
     {
         "type" : "event",

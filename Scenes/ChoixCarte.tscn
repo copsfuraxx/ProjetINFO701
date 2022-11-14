@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Valider.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Annuler.tscn" type="PackedScene" id=2]
-[ext_resource path="res://CameraCarte.gd" type="Script" id=3]
-[ext_resource path="res://ChoixCarte.gd" type="Script" id=4]
-[ext_resource path="res://GUI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Valider.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Annuler.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/CameraCarte.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/ChoixCarte.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/GUI.tscn" type="PackedScene" id=5]
 
 [sub_resource type="ViewportTexture" id=1]
 viewport_path = NodePath("Camera/Viewport")

@@ -12,39 +12,51 @@ _global_script_classes=[ {
 "base": "Card",
 "class": "BatCard",
 "language": "GDScript",
-"path": "res://Carte/BatCarte.gd"
+"path": "res://Scripts/Carte/BatCarte.gd"
 }, {
 "base": "Reference",
 "class": "Card",
 "language": "GDScript",
-"path": "res://Carte/ClassCarte.gd"
+"path": "res://Scripts/Carte/ClassCarte.gd"
 }, {
 "base": "Card",
 "class": "EventCard",
 "language": "GDScript",
-"path": "res://Carte/EventCarte.gd"
+"path": "res://Scripts/Carte/EventCarte.gd"
+}, {
+"base": "BatCard",
+"class": "FightBatCard",
+"language": "GDScript",
+"path": "res://Scripts/Carte/FightBatCard.gd"
 }, {
 "base": "Card",
 "class": "PNJCard",
 "language": "GDScript",
-"path": "res://Carte/PNJCarte.gd"
+"path": "res://Scripts/Carte/PNJCarte.gd"
+}, {
+"base": "BatCard",
+"class": "ProdBatCard",
+"language": "GDScript",
+"path": "res://Scripts/Carte/ProdBatCard.gd"
 } ]
 _global_script_class_icons={
 "BatCard": "",
 "Card": "",
 "EventCard": "",
-"PNJCard": ""
+"FightBatCard": "",
+"PNJCard": "",
+"ProdBatCard": ""
 }
 
 [application]
 
 config/name="ProjetINFO701"
-run/main_scene="res://MainMenu.tscn"
+run/main_scene="res://Scenes/MainMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-Main="*res://Main.gd"
+Main="*res://Scripts/Main.gd"
 
 [display]
 
@@ -65,14 +77,11 @@ click={
 
 pointing/emulate_touch_from_mouse=true
 
-[layer_names]
-
-2d_physics/layer_1="Click"
-
 [physics]
 
 common/enable_pause_aware_picking=true
 
 [rendering]
 
+environment/default_clear_color=Color( 0.34902, 0.45098, 1, 1 )
 environment/default_environment="res://default_env.tres"

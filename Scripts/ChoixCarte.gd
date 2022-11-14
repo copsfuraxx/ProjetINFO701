@@ -2,7 +2,7 @@ extends Spatial
 
 var path = "res://Cartes.json"
 var deck:Array = []
-onready var scene = preload("res://Carte/Carte.tscn")
+onready var scene = preload("res://Scenes/Carte.tscn")
 
 func _ready():
 	var data_file = File.new()
@@ -19,11 +19,16 @@ func _ready():
 	for carte in data:
 		if(carte["type"] == "pnj"):
 			for _i in range(carte["nbrCarte"]):
-				deck.append(PNJCard.new(id, carte["name"], carte["cost"], carte["nbr"], carte["img"]))
-		elif(carte["type"] == "bat"):
-			deck.append(BatCard.new(id, carte["name"], carte["cost"], carte["worker"], carte["vie"], carte["img"]))
+				deck.append(PNJCard.new(id, carte["name"], carte["cost"], carte["img"], carte["nbr"]))
+		elif(carte["type"] == "prod"):
+			for _i in range(carte["nbrCarte"]):
+				deck.append(ProdBatCard.new(id, carte["name"], carte["cost"], carte["img"], carte["worker"], carte["vie"], carte["prod"], carte["qtt"]))
+		elif(carte["type"] == "fight"):
+			for _i in range(carte["nbrCarte"]):
+				deck.append(ProdBatCard.new(id, carte["name"], carte["cost"], carte["img"], carte["worker"], carte["vie"], carte["degat"]))
 		elif(carte["type"] == "event"):
-			deck.append(EventCard.new(id, carte["name"], carte["cost"]))
+			for _i in range(carte["nbrCarte"]):
+				deck.append(EventCard.new(id, carte["name"], carte["cost"]))
 		id += 1
 	get_node("/root/Main").deck = deck
 	randomize()

@@ -10,10 +10,9 @@ var card
 var etat = Etat.Main
 var main
 
-onready var scene = preload("res://Carte/Carte.tscn")
+onready var scene = preload("res://Scenes/Carte.tscn")
 
 func _ready():
-# Create the RayCast
 	ray = $RayCast
 	ray.enabled = false
 	main = get_node("/root/Main")
@@ -46,12 +45,14 @@ func _physics_process(delta):
 					card.queue_free()
 					draw()
 					reset()
-				else:
+				elif card.cart is BatCard and main.buildRessource - card.cart.cost >= 0 and main.population - card.cart.worker >= 0:
 					$"..".visible = false
-					var b = load("res://Maison.tscn").instance()
+					var b = load("res://Scenes/Maison.tscn").instance()
 					b.cart = card.cart
 					$"../../Camp/Camera".wakeup(b)
 					stop()
+				else:
+					reset()
 			elif o.is_in_group("Carte"):
 				card.reset(o != card)
 				card = null

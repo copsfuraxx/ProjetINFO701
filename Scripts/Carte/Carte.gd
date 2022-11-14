@@ -1,5 +1,6 @@
 extends KinematicBody
 
+
 var cart:Card
 var mouse_position
 var pos_ini:Vector3
@@ -11,7 +12,7 @@ func setCard(_cart:Card, x:float, y:float):
 	pos_ini = translation
 	$Label3D.text = cart.cardName
 	if cart.img != "null":
-		$Sprite3D2.texture = load("res://Carte/" + cart.img)
+		$Sprite3D2.texture = load("res://Assets/Carte/" + cart.img)
 
 func drag():
 	$Sprite3D.render_priority += 2
