@@ -5,10 +5,11 @@ enum Etat{ Main, Carte_Selected}
 var ray
 var draged = false
 var timer = .0
-var mouse_position = Vector2.ZERO
+var mouse_position = null
 var card
 var etat = Etat.Main
 var main
+var nbrCard = 3
 
 onready var scene = preload("res://Scenes/Carte.tscn")
 
@@ -31,6 +32,8 @@ func _input(event):
 				card = null
 	if event is InputEventScreenDrag and draged:
 		mouse_position = translation + project_ray_normal(event.position)
+	if event is InputEventScreenTouch and !event.is_pressed():
+		mouse_position = null
 
 func _physics_process(delta):
 	if etat == Etat.Main:
@@ -43,12 +46,17 @@ func _physics_process(delta):
 					main.population += card.cart.nbr
 					main.food -= card.cart.cost
 					card.queue_free()
-					draw()
 					reset()
+					nbrCard -= 1
+#					draw()
+
 				elif card.cart is BatCard and main.buildRessource - card.cart.cost >= 0 and main.population - card.cart.worker >= 0:
 					$"..".visible = false
 					var b = load("res://Scenes/Maison.tscn").instance()
 					b.cart = card.cart
+					card.queue_free()
+					reset()
+					nbrCard -= 1
 					$"../../Camp/Camera".wakeup(b)
 					stop()
 				else:
@@ -63,6 +71,9 @@ func _physics_process(delta):
 				reset()
 		elif ray.enabled:
 			reset()
+	if nbrCard == 0:
+		nbrCard = -1
+		nuit()
 
 func drag(delta):
 	if ray.is_colliding() and ray.get_collider().is_in_group("Carte"):
@@ -73,7 +84,7 @@ func drag(delta):
 		timer = .0
 	else:
 		ray.enabled = false
-	if draged and timer > 0.1:
+	if draged and timer > 0.1 and mouse_position != null:
 		var p = mouse_position * translation.distance_to(card.translation)
 		card.translation = Vector3(p.x, p.y, card.translation.z)
 	elif draged:
@@ -89,7 +100,6 @@ func reset():
 
 func wakeup():
 	make_current()
-	reset()
 	$"..".visible = true
 	start()
 
@@ -106,3 +116,9 @@ func draw():
 	c.setCard(get_node("/root/Main").deck[0], card.pos_ini.x, -1.25)
 	get_node("/root/Main").deck.remove(0)
 	$"../".add_child(c)
+
+func nuit():
+	$"../../DirectionalLight".light_energy = 0.01
+#	$"../../DirectionalLight".rotation_degrees.x += 180
+#	$"../../DirectionalLight".light_color = Color("4e49f5")
+	$"../../WorldEnvironment".environment = load("res://night_environment.tres")

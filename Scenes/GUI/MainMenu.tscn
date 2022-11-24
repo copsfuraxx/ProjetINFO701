@@ -20,4 +20,20 @@ grow_vertical = 2
 custom_fonts/font = ExtResource( 1 )
 text = "Play"
 
+[node name="Button2" type="Button" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -157.0
+margin_top = 250.0
+margin_right = 135.0
+margin_bottom = 325.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = ExtResource( 1 )
+text = "TOP SCORES"
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_request_completed"]
