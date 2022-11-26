@@ -44,6 +44,7 @@ func _physics_process(_delta):
 			case = null
 			build = null
 			$MenuSelect.visible = false
+			$"../../ChoixCarte/Camera".nbrCard -= 1
 			$"../../ChoixCarte/Camera".wakeup()
 			stop()
 

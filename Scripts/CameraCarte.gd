@@ -56,8 +56,7 @@ func _physics_process(delta):
 					b.cart = card.cart
 					card.queue_free()
 					reset()
-					nbrCard -= 1
-					$"../../Camp/Camera".wakeup(b)
+					$"../../Camp/CameraBat".wakeup(b)
 					stop()
 				else:
 					reset()
@@ -106,6 +105,7 @@ func wakeup():
 func stop():
 	set_physics_process(false)
 	set_process_input(false)
+	$"..".visible = false
 
 func start():
 	set_physics_process(true)
@@ -119,6 +119,6 @@ func draw():
 
 func nuit():
 	$"../../DirectionalLight".light_energy = 0.01
-#	$"../../DirectionalLight".rotation_degrees.x += 180
-#	$"../../DirectionalLight".light_color = Color("4e49f5")
 	$"../../WorldEnvironment".environment = load("res://night_environment.tres")
+	stop()
+	$"../../Camp/CameraNuit".wakeup()
