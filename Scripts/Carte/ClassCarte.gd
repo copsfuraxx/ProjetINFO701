@@ -1,4 +1,5 @@
 class_name Card
+#Class abstraite pour structurer les données des cartes
 
 var id:int
 var cardName:String

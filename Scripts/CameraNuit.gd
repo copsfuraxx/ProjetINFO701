@@ -1,6 +1,6 @@
 extends Camera
 
-var zombie = preload("res://Zombie.tscn")
+var zombie = preload("res://Scenes/Zombie.tscn")
 onready var main = get_node("/root/Main")
 var rng = RandomNumberGenerator.new()
 

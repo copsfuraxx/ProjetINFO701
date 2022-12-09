@@ -6,3 +6,4 @@ var food = 100
 var deck:Array
 var json
 var j = 1
+var building = []

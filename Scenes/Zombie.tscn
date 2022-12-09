@@ -1,6 +1,6 @@
 [gd_scene load_steps=26 format=2]
 
-[ext_resource path="res://zombie_MAT.material" type="Material" id=1]
+[ext_resource path="res://Assets/Zombie/zombie_MAT.material" type="Material" id=1]
 [ext_resource path="res://Scripts/Zombie.gd" type="Script" id=2]
 
 [sub_resource type="ArrayMesh" id=1]
@@ -3316,7 +3316,7 @@ transform = Transform( 0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0 )
 script = ExtResource( 2 )
 
 [node name="Sketchfab_model" type="Spatial" parent="."]
-transform = Transform( 1.96284, 0, 0, 0, 4.35837e-16, 1.96284, 0, -1.96284, 4.35837e-16, 0, 0, 0 )
+transform = Transform( -1.96284, 1.71597e-07, 7.50074e-15, 0, -8.57985e-08, 1.96284, 1.71597e-07, 1.96284, 8.57985e-08, 0, 0, 0 )
 
 [node name="1a9195147262472c8b5ff6334cd01264fbx" type="Spatial" parent="Sketchfab_model"]
 transform = Transform( 0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, 0, 0, 0 )

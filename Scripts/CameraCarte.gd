@@ -90,7 +90,7 @@ func drag(delta):
 		timer += delta
 
 func reset():
-	card.reset()
+	card.reset(true)
 	card = null
 	etat = Etat.Main
 	$"../MenuSelect".visible = false
@@ -118,7 +118,7 @@ func draw():
 	$"../".add_child(c)
 
 func nuit():
-	$"../../DirectionalLight".light_energy = 0.01
+#	$"../../DirectionalLight".light_energy = 0.01
 	$"../../WorldEnvironment".environment = load("res://night_environment.tres")
 	stop()
 	$"../../Camp/CameraNuit".wakeup()

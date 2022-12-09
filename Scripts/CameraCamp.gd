@@ -42,8 +42,10 @@ func _physics_process(_delta):
 			main.population -= build.cart.worker
 			case.queue_free()
 			case = null
+			main.building.append(build)
 			build = null
 			$MenuSelect.visible = false
+			$"../Node".visible = false
 			$"../../ChoixCarte/Camera".nbrCard -= 1
 			$"../../ChoixCarte/Camera".wakeup()
 			stop()
@@ -57,6 +59,7 @@ func wakeup(b):
 	$"../".add_child(build)
 	#etat = Etat.Awake
 	$MenuSelect.visible = true
+	$"../Node".visible = true
 	start()
 
 func stop():
