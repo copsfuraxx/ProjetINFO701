@@ -52,8 +52,8 @@ func _physics_process(delta):
 
 				elif card.cart is BatCard and main.buildRessource - card.cart.cost >= 0 and main.population - card.cart.worker >= 0:
 					$"..".visible = false
-					var b = load("res://Scenes/Maison.tscn").instance()
-					b.cart = card.cart
+					var b = load("res://Scenes/Build.tscn").instance()
+					b.setCart(card.cart)
 					card.queue_free()
 					reset()
 					$"../../Camp/CameraBat".wakeup(b)

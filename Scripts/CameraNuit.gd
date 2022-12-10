@@ -12,8 +12,8 @@ func wakeup():
 	make_current()
 	for i in range(0, main.j):
 		var z = zombie.instance()
-		var r = rng.randi_range(1,5)
-		z.translation = get_node("../Spawn1").translation
+		var r = rng.randi_range(1,4)
+		z.translation = get_node("../Spawn" + str(r)).translation
 		$"..".add_child(z)
 	start()
 

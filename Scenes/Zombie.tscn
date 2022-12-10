@@ -3294,7 +3294,6 @@ xfade_time = 0.1
 xfade_time = 0.1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=21]
-switch_mode = 2
 xfade_time = 0.1
 
 [sub_resource type="AnimationNodeStateMachine" id=22]
