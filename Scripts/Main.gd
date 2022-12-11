@@ -7,3 +7,4 @@ var deck:Array
 var json
 var j = 1
 var building = []
+var zombies = []	

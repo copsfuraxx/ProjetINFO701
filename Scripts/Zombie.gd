@@ -40,6 +40,7 @@ func _physics_process(delta):
 				timer = attack_speed
 			else:
 				if cible.vie == 0:
+					disconnect("hit", cible, "hit")
 					cible = null
 					etat = Etat.walk
 					animation.travel("WALK")
@@ -57,3 +58,7 @@ func getCible():
 				if d1 < d2:
 					cible = b
 	look_at(cible.translation, Vector3.UP)
+
+func hit(dammage):
+	main.zombies.remove(main.zombies.find(self))
+	queue_free()

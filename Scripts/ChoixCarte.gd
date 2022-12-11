@@ -25,7 +25,7 @@ func _ready():
 				deck.append(ProdBatCard.new(id, carte["name"], carte["cost"], carte["img"], carte["worker"], carte["vie"], carte["prod"], carte["qtt"]))
 		elif(carte["type"] == "fight"):
 			for _i in range(carte["nbrCarte"]):
-				deck.append(ProdBatCard.new(id, carte["name"], carte["cost"], carte["img"], carte["worker"], carte["vie"], carte["degat"]))
+				deck.append(FightBatCard.new(id, carte["name"], carte["cost"], carte["img"], carte["worker"], carte["vie"], carte["degat"]))
 #		elif(carte["type"] == "event"):
 #			for _i in range(carte["nbrCarte"]):
 #				deck.append(EventCard.new(id, carte["name"], carte["cost"]))
