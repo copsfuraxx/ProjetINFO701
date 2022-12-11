@@ -1,15 +1,16 @@
 extends StaticBody
 
 signal shoot(dammage)
+signal destroy()
 const porte = 5.0
 var vie:int
 var cart:Card
 var timer:float = 1.0
-var main
+onready var main = get_node("/root/Main")
 var cible:KinematicBody = null
 
 func _ready():
-	main = get_node("/root/Main")
+	connect("destroy", get_node("../CameraNuit"), "batDestroy")
 	stop()
 
 func _physics_process(delta):
@@ -30,12 +31,13 @@ func setCart(c:BatCard):
 
 func hit(dammage:int):
 	if vie - dammage <= 0:
-		dead()
 		vie = 0
+		dead()
 	else:
 		vie -= dammage
 
 func dead():
+	emit_signal("destroy")
 	visible = false
 	$CollisionShape.disabled = true
 
@@ -55,3 +57,11 @@ func findCible():
 				var d2 = translation.distance_to(z.translation)
 				if d2 < d1:
 					cible = z
+
+func prod():
+	if cart is ProdBatCard:
+		match cart.prod:
+			0:
+				main.food += cart.qtt
+			1:
+				main.buildRessource += cart.qtt

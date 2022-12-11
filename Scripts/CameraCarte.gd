@@ -8,7 +8,7 @@ var timer = .0
 var mouse_position = null
 var card
 var etat = Etat.Main
-var main
+onready var main = get_node("/root/Main")
 var nbrCard = 3
 
 onready var scene = preload("res://Scenes/Carte.tscn")
@@ -16,7 +16,6 @@ onready var scene = preload("res://Scenes/Carte.tscn")
 func _ready():
 	ray = $RayCast
 	ray.enabled = false
-	main = get_node("/root/Main")
 
 func _input(event):
 	if event is InputEventScreenTouch:
@@ -48,7 +47,6 @@ func _physics_process(delta):
 					card.queue_free()
 					reset()
 					nbrCard -= 1
-#					draw()
 
 				elif card.cart is BatCard and main.buildRessource - card.cart.cost >= 0 and main.population - card.cart.worker >= 0:
 					$"..".visible = false
@@ -113,12 +111,28 @@ func start():
 
 func draw():
 	var c = scene.instance()
-	c.setCard(get_node("/root/Main").deck[0], card.pos_ini.x, -1.25)
-	get_node("/root/Main").deck.remove(0)
+	c.setCard(main.deck[0], card.pos_ini.x, -1.25)
+	main.deck.remove(0)
 	$"../".add_child(c)
+	nbrCard = min(3, nbrCard + 1)
 
 func nuit():
 #	$"../../DirectionalLight".light_energy = 0.01
-	$"../../WorldEnvironment".environment = load("res://night_environment.tres")
+	$"../../WorldEnvironment".environment = preload("res://night_environment.tres")
 	stop()
 	$"../../Camp/CameraNuit".wakeup()
+
+func jour():
+	main.j += 1
+	for b in main.building:
+		b.prod()
+	var x = -0.6
+	for _i in range(3):
+		var c = scene.instance()
+		c.setCard(main.deck[0], x, -1.25)
+		main.deck.remove(0)
+		x+= 0.6
+		$"../".add_child(c)
+#	$"../../DirectionalLight".light_energy = 1.0
+	$"../../WorldEnvironment".environment = preload("res://default_env.tres")
+	wakeup()

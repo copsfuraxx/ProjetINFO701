@@ -3,6 +3,7 @@ extends KinematicBody
 enum Etat {spawn = 1, walk = 2, attack = 3, dead = 4}
 
 signal hit(dammage)
+signal dead()
 
 onready var animation = $AnimationTree.get("parameters/playback")
 onready var main = get_node("/root/Main")
@@ -12,6 +13,9 @@ const speed = 1
 const spawn_time = 2.867
 const attack_speed = 2.067
 var timer = spawn_time
+
+func _ready():
+	connect("dead", get_node("../CameraNuit"), "zombieDead")
 
 func _physics_process(delta):
 	match etat:
@@ -24,6 +28,8 @@ func _physics_process(delta):
 		Etat.walk:
 			if cible == null || cible.vie == 0:
 				getCible()
+				if cible == null:
+					return
 			var direction = translation.direction_to(cible.translation) * speed
 			direction = move_and_slide(direction)
 			var c = null
@@ -57,8 +63,10 @@ func getCible():
 				var d2 = translation.distance_to(cible.translation)
 				if d1 < d2:
 					cible = b
-	look_at(cible.translation, Vector3.UP)
+	if cible != null:
+		look_at(cible.translation, Vector3.UP)
 
 func hit(dammage):
 	main.zombies.remove(main.zombies.find(self))
+	emit_signal("dead")
 	queue_free()
