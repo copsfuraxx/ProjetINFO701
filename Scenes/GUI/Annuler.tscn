@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="QuadMesh" id=1]
+material = SubResource( 2 )
+size = Vector2( 0.65, 0.65 )
+
+[node name="MeshInstance" type="MeshInstance"]
+mesh = SubResource( 1 )
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.001 )
+text = "ANNULER"

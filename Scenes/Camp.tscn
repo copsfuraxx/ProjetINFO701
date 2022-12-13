@@ -1,0 +1,189 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scenes/GUI/Valider.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/CameraCamp.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/GUI/GreenCase.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/CameraNuit.gd" type="Script" id=4]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 100, 2, 100 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 50, 1, 50 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 1, 0.3, 0.00547301 )
+
+[sub_resource type="SpatialMaterial" id=5]
+flags_transparent = true
+albedo_color = Color( 0, 0, 0, 0.741176 )
+
+[sub_resource type="CubeMesh" id=4]
+material = SubResource( 5 )
+size = Vector3( 2, 0.6, 0.01 )
+
+[node name="Camp" type="Spatial"]
+
+[node name="StaticBody" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
+mesh = SubResource( 1 )
+skeleton = NodePath("../..")
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+shape = SubResource( 2 )
+
+[node name="Node" type="Spatial" parent="."]
+visible = false
+
+[node name="Case" parent="Node" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5 )
+
+[node name="Case2" parent="Node" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0.5 )
+
+[node name="Case3" parent="Node" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0.5 )
+
+[node name="Case4" parent="Node" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0.5 )
+
+[node name="Case5" parent="Node" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0.5 )
+
+[node name="Case6" parent="Node" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 0.5 )
+
+[node name="Case7" parent="Node" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5 )
+
+[node name="Case8" parent="Node" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -0.5 )
+
+[node name="Case9" parent="Node" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -0.5 )
+
+[node name="Case10" parent="Node" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -0.5 )
+
+[node name="Case11" parent="Node" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -0.5 )
+
+[node name="Case12" parent="Node" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -0.5 )
+
+[node name="Case13" parent="Node" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 1.5 )
+
+[node name="Case14" parent="Node" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 1.5 )
+
+[node name="Case15" parent="Node" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 1.5 )
+
+[node name="Case16" parent="Node" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 1.5 )
+
+[node name="Case17" parent="Node" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 1.5 )
+
+[node name="Case18" parent="Node" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 1.5 )
+
+[node name="Case19" parent="Node" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -1.5 )
+
+[node name="Case20" parent="Node" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -1.5 )
+
+[node name="Case21" parent="Node" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -1.5 )
+
+[node name="Case22" parent="Node" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -1.5 )
+
+[node name="Case23" parent="Node" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -1.5 )
+
+[node name="Case24" parent="Node" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -1.5 )
+
+[node name="Case25" parent="Node" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 2.5 )
+
+[node name="Case26" parent="Node" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 2.5 )
+
+[node name="Case27" parent="Node" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 2.5 )
+
+[node name="Case28" parent="Node" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 2.5 )
+
+[node name="Case29" parent="Node" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 2.5 )
+
+[node name="Case30" parent="Node" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 2.5 )
+
+[node name="Case31" parent="Node" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -2.5 )
+
+[node name="Case32" parent="Node" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -2.5 )
+
+[node name="Case33" parent="Node" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -2.5 )
+
+[node name="Case34" parent="Node" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -2.5 )
+
+[node name="Case35" parent="Node" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -2.5 )
+
+[node name="Case36" parent="Node" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -2.5 )
+
+[node name="CameraBat" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0 )
+script = ExtResource( 2 )
+
+[node name="RayCast" type="RayCast" parent="CameraBat"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+
+[node name="MenuSelect" type="Spatial" parent="CameraBat"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.82222, -3 )
+visible = false
+
+[node name="Valider" parent="CameraBat/MenuSelect" instance=ExtResource( 1 )]
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0 )
+
+[node name="KinematicBody" type="KinematicBody" parent="CameraBat/MenuSelect"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0312614 )
+
+[node name="CollisionPolygon" type="CollisionShape" parent="CameraBat/MenuSelect/KinematicBody"]
+shape = SubResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="CameraBat/MenuSelect/KinematicBody"]
+mesh = SubResource( 4 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 15, 0 )
+editor_only = true
+
+[node name="Spawn1" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0 )
+
+[node name="Spawn2" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0 )
+
+[node name="Spawn3" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10 )
+
+[node name="Spawn4" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10 )
+
+[node name="CameraNuit" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 10, 8 )
+script = ExtResource( 4 )

@@ -1,21 +1,64 @@
 [
     {
         "type" : "pnj",
-        "name" : "Survivant avec\nun tres\ngrand nom",
-        "cost" : 1,
-        "vie" : 1,
-        "img" : "survivor.png"
+        "name" : " 5 Survivants",
+        "cost" : 5,
+        "nbr" : 5,
+        "img" : "survivor.png",
+        "nbrCarte" : 1
     },
     {
-        "type" : "bat",
-        "name" : "Hall",
+        "type" : "pnj",
+        "name" : " 1 Survivant",
         "cost" : 1,
+        "nbr" : 1,
+        "img" : "survivor.png",
+        "nbrCarte" : 10
+    },
+    {
+        "type" : "pnj",
+        "name" : " 2 Survivants",
+        "cost" : 2,
+        "nbr" : 2,
+        "img" : "survivor.png",
+        "nbrCarte" : 5
+    },
+    {
+        "type" : "prod",
+        "name" : "ferme",
+        "cost" : 1,
+        "img" : "base.png",
+        "worker" : 5,
         "vie" : 1,
-        "img" : "base.png"
+        "prod" : 0,
+        "qtt" : 10,
+        "nbrCarte" : 5
+    },
+    {
+        "type" : "prod",
+        "name" : "usine",
+        "cost" : 1,
+        "img" : "base.png",
+        "worker" : 5,
+        "vie" : 1,
+        "prod" : 1,
+        "qtt" : 10,
+        "nbrCarte" : 5
+    },
+    {
+        "type" : "fight",
+        "name" : "tour de garde",
+        "cost" : 1,
+        "img" : "base.png",
+        "worker" : 5,
+        "vie" : 1,
+        "degat" : 1,
+        "nbrCarte" : 5
     },
     {
         "type" : "event",
         "name" : "Decouverte",
-        "cost" : 1
+        "cost" : 1,
+        "nbrCarte" : 1
     }
 ]
