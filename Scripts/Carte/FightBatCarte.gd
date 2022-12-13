@@ -1,6 +1,6 @@
 extends BatCard
-class_name FightBatCard
-#Class abstraite pour structurer les données des cartes de batiment de combat
+class_name FightBatCarte
+#Class pour structurer les données des cartes de batiment de combat
 
 var degat:int
 

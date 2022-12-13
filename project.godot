@@ -25,9 +25,9 @@ _global_script_classes=[ {
 "path": "res://Scripts/Carte/EventCarte.gd"
 }, {
 "base": "BatCard",
-"class": "FightBatCard",
+"class": "FightBatCarte",
 "language": "GDScript",
-"path": "res://Scripts/Carte/FightBatCard.gd"
+"path": "res://Scripts/Carte/FightBatCarte.gd"
 }, {
 "base": "Card",
 "class": "PNJCard",
@@ -35,17 +35,17 @@ _global_script_classes=[ {
 "path": "res://Scripts/Carte/PNJCarte.gd"
 }, {
 "base": "BatCard",
-"class": "ProdBatCard",
+"class": "ProdBatCarte",
 "language": "GDScript",
-"path": "res://Scripts/Carte/ProdBatCard.gd"
+"path": "res://Scripts/Carte/ProdBatCarte.gd"
 } ]
 _global_script_class_icons={
 "BatCard": "",
 "Card": "",
 "EventCard": "",
-"FightBatCard": "",
+"FightBatCarte": "",
 "PNJCard": "",
-"ProdBatCard": ""
+"ProdBatCarte": ""
 }
 
 [application]

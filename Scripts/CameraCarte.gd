@@ -36,6 +36,9 @@ func _input(event):
 		mouse_position = null
 
 func _physics_process(delta):
+	if hand.size() == 0:
+		nuit()
+		return
 	if ray.is_colliding():
 		var o = ray.get_collider()
 		if o.is_in_group("Button") and o.is_in_group("Passer"):
@@ -74,8 +77,6 @@ func _physics_process(delta):
 				reset()
 		elif ray.enabled:
 			reset()
-	if hand.size() == 0:
-		nuit()
 
 func drag(delta):
 	if ray.is_colliding() and ray.get_collider().is_in_group("Carte"):

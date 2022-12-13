@@ -1,6 +1,6 @@
 extends BatCard
-class_name ProdBatCard
-#Class abstraite pour structurer les données des cartes de batiment de production
+class_name ProdBatCarte
+#Class pour structurer les données des cartes de batiment de production
 
 const Food = 0
 const Build = 1
