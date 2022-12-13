@@ -9,7 +9,7 @@ var mouse_position = null
 var card
 var etat = Etat.Main
 onready var main = get_node("/root/Main")
-var nbrCard = 3
+var hand = []
 
 onready var scene = preload("res://Scenes/Carte.tscn")
 
@@ -20,13 +20,14 @@ func _ready():
 func _input(event):
 	if event is InputEventScreenTouch:
 		if !draged and !ray.enabled:
-			ray.cast_to = project_ray_normal(event.position) * 10
+			ray.cast_to = project_ray_normal(event.position) * 120
 			ray.enabled = true
 		elif draged and !event.is_pressed():
 			draged = false
 			if card.drop() == 1:
 				etat = Etat.Carte_Selected
 				$"../MenuSelect".visible = true
+				$"../Passer".visible = false
 			else:
 				card = null
 	if event is InputEventScreenDrag and draged:
@@ -35,6 +36,10 @@ func _input(event):
 		mouse_position = null
 
 func _physics_process(delta):
+	if ray.is_colliding():
+		var o = ray.get_collider()
+		if o.is_in_group("Button") and o.is_in_group("Passer"):
+			nuit()
 	if etat == Etat.Main:
 		drag(delta)
 	elif etat == Etat.Carte_Selected:
@@ -44,14 +49,14 @@ func _physics_process(delta):
 				if card.cart is PNJCard and main.food - card.cart.cost >= 0:
 					main.population += card.cart.nbr
 					main.food -= card.cart.cost
+					hand.remove(hand.find(card))
 					card.queue_free()
 					reset()
-					nbrCard -= 1
-
 				elif card.cart is BatCard and main.buildRessource - card.cart.cost >= 0 and main.population - card.cart.worker >= 0:
 					$"..".visible = false
 					var b = load("res://Scenes/Build.tscn").instance()
 					b.setCart(card.cart)
+					hand.remove(hand.find(card))
 					card.queue_free()
 					reset()
 					$"../../Camp/CameraBat".wakeup(b)
@@ -63,13 +68,13 @@ func _physics_process(delta):
 				card = null
 				etat = Etat.Main
 				$"../MenuSelect".visible = false
+				$"../Passer".visible = true
 				drag(delta)
 			else:
 				reset()
 		elif ray.enabled:
 			reset()
-	if nbrCard == 0:
-		nbrCard = -1
+	if hand.size() == 0:
 		nuit()
 
 func drag(delta):
@@ -92,6 +97,7 @@ func reset():
 	card = null
 	etat = Etat.Main
 	$"../MenuSelect".visible = false
+	$"../Passer".visible = true
 	ray.enabled = false
 	draged = false
 
@@ -109,30 +115,28 @@ func start():
 	set_physics_process(true)
 	set_process_input(true)
 
-func draw():
-	var c = scene.instance()
-	c.setCard(main.deck[0], card.pos_ini.x, -1.25)
-	main.deck.remove(0)
-	$"../".add_child(c)
-	nbrCard = min(3, nbrCard + 1)
-
 func nuit():
+	stop()
 #	$"../../DirectionalLight".light_energy = 0.01
 	$"../../WorldEnvironment".environment = preload("res://night_environment.tres")
-	stop()
 	$"../../Camp/CameraNuit".wakeup()
 
 func jour():
 	main.j += 1
 	for b in main.building:
-		b.prod()
-	var x = -0.6
-	for _i in range(3):
+		b.repair()
+		b.prod()	
+	while hand.size() < 3:
 		var c = scene.instance()
-		c.setCard(main.deck[0], x, -1.25)
+		hand.append(c)
+		c.setCard(main.deck[0], .0, -1.25)
 		main.deck.remove(0)
-		x+= 0.6
 		$"../".add_child(c)
+	var x = -0.6
+	for c in hand:
+		c.translation.x = x
+		c.pos_ini.x = x
+		x+= 0.6
 #	$"../../DirectionalLight".light_energy = 1.0
 	$"../../WorldEnvironment".environment = preload("res://default_env.tres")
 	wakeup()

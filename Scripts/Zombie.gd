@@ -45,15 +45,16 @@ func _physics_process(delta):
 				emit_signal("hit")
 				timer = attack_speed
 			else:
-				if cible.vie == 0:
+				timer -= delta
+			if cible.vie == 0:
 					disconnect("hit", cible, "hit")
 					cible = null
 					etat = Etat.walk
 					animation.travel("WALK")
-				else :
-					timer -= delta
 
 func getCible():
+	if cible != null and cible.vie == 0:
+		cible = null
 	for b in main.building:
 		if b.vie > 0:
 			if cible == null:

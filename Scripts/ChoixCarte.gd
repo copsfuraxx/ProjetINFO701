@@ -39,6 +39,7 @@ func _ready():
 		c.setCard(deck[0], x, -1.25)
 		deck.remove(0)
 		x+= 0.6
+		$"../Camera".hand.append(c)
 		$"../".call_deferred("add_child", c)
 	queue_free()
 	#$"../".call_deferred("remove_child", self)

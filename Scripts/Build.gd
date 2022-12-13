@@ -4,7 +4,7 @@ signal shoot(dammage)
 signal destroy()
 const porte = 5.0
 var vie:int
-var cart:Card
+var cart:BatCard
 var timer:float = 1.0
 onready var main = get_node("/root/Main")
 var cible:KinematicBody = null
@@ -18,6 +18,7 @@ func _physics_process(delta):
 		if cible == null:
 			findCible()
 		if cible != null and timer - delta <= .0:
+			timer = 1.0
 			connect("shoot", cible, "hit", [1])
 			emit_signal("shoot")
 			disconnect("shoot", cible, "hit")
@@ -37,6 +38,7 @@ func hit(dammage:int):
 		vie -= dammage
 
 func dead():
+	stop()
 	emit_signal("destroy")
 	visible = false
 	$CollisionShape.disabled = true
@@ -65,3 +67,9 @@ func prod():
 				main.food += cart.qtt
 			1:
 				main.buildRessource += cart.qtt
+
+func repair():
+	if vie == 0:
+		visible = true
+		$CollisionShape.disabled = false
+	vie = cart.vie
