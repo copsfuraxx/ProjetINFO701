@@ -14,7 +14,7 @@ func _ready():
 	stop()
 
 func _physics_process(delta):
-	if cart is FightBatCard:
+	if cart is FightBatCarte:
 		if cible == null:
 			findCible()
 		if cible != null and timer - delta <= .0:
@@ -61,7 +61,7 @@ func findCible():
 					cible = z
 
 func prod():
-	if cart is ProdBatCard:
+	if cart is ProdBatCarte:
 		match cart.prod:
 			0:
 				main.food += cart.qtt

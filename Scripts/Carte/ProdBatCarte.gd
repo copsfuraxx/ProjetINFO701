@@ -11,3 +11,9 @@ var qtt:int
 func _init(id:int = -1, cardName:String = "null", cost:int = 0, img:String = "null", worker:int = 0, vie:int = 0, _prod:int = -1, _qtt:int = 0).(id, cardName, cost, img, worker, vie):
 	prod = _prod
 	qtt = _qtt
+
+func getBuild():
+	if cardName == "ferme":
+		return load("res://Scenes/Ferme.tscn").instance()
+	elif cardName == "usine":
+		return load("res://Scenes/Usine.tscn").instance()

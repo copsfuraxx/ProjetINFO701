@@ -57,7 +57,7 @@ func _physics_process(delta):
 					reset()
 				elif card.cart is BatCard and main.buildRessource - card.cart.cost >= 0 and main.population - card.cart.worker >= 0:
 					$"..".visible = false
-					var b = load("res://Scenes/Build.tscn").instance()
+					var b = card.cart.getBuild()
 					b.setCart(card.cart)
 					hand.remove(hand.find(card))
 					card.queue_free()
