@@ -1,4 +1,5 @@
 extends Spatial
+#Script qui lit le json pour créer le deck
 
 var path = "res://Cartes.json"
 var deck:Array = []

@@ -1,6 +1,5 @@
 extends Camera
-
-enum Etat{}
+#Script qui gère la camera lors de la construction d'un batiment
 
 var ray
 var mouse_position = null
@@ -13,11 +12,12 @@ var draged = true
 var main
 
 func _ready():
-# Create the RayCast
 	ray = $RayCast
 	main = get_node("/root/Main")
 	stop()
 
+#Fonction appelé quand il y a un événement d'entrée
+#Gere le mouvement de la camera, le chois de la position pour le batiment et la validation
 func _input(event):
 	if event is InputEventScreenDrag:
 		if event.relative.length() > 1:
@@ -49,6 +49,7 @@ func _physics_process(_delta):
 			$"../../ChoixCarte/Camera".wakeup()
 			stop()
 
+#Fonction qui s'occupe de preparer la camera pour la costruction d'un batiment
 func wakeup(b):
 	build = b
 	make_current()

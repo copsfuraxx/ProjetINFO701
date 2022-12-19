@@ -2,9 +2,6 @@ extends Card
 class_name BatCard
 #Class abstraite pour structurer les données des cartes de batiment
 
-const Prod = 0
-const Fight = 1
-
 var worker:int
 var vie:int
 

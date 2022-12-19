@@ -1,4 +1,5 @@
 extends StaticBody
+#Script qui gère la physique des batiments
 
 signal shoot(dammage)
 signal destroy()
@@ -30,6 +31,7 @@ func setCart(c:BatCard):
 	vie = c.vie
 	cart = c
 
+#fonction appelé quand le batiment prend un coup
 func hit(dammage:int):
 	if vie - dammage <= 0:
 		vie = 0
@@ -37,6 +39,7 @@ func hit(dammage:int):
 	else:
 		vie -= dammage
 
+#fonction appelé quand le batiment n'a plus de vie
 func dead():
 	stop()
 	emit_signal("destroy")
@@ -49,6 +52,7 @@ func start():
 func stop():
 	set_physics_process(false)
 
+#fonction qui recherche une cible parmi les zombie sur la map
 func findCible():
 	for z in main.zombies:
 		if translation.distance_to(z.translation) <= porte:
@@ -60,6 +64,7 @@ func findCible():
 				if d2 < d1:
 					cible = z
 
+#fonction qui gère la production de ressource
 func prod():
 	if cart is ProdBatCarte:
 		match cart.prod:
@@ -68,6 +73,7 @@ func prod():
 			1:
 				main.buildRessource += cart.qtt
 
+#fonction qui repare reset la vie du batiment
 func repair():
 	if vie == 0:
 		visible = true
