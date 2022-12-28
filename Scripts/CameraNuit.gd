@@ -1,4 +1,5 @@
 extends Camera
+#Script qui gère la camera lors du choix des cartes
 
 const zombie = preload("res://Scenes/Zombie.tscn")
 
@@ -8,10 +9,12 @@ var rng = RandomNumberGenerator.new()
 func _ready():
 	stop()
 
+#Gere le movement de la camera
 func _input(event):
 	if event is InputEventScreenDrag:
 		translate(Vector3(-event.relative.x / 300, event.relative.y / 300, .0))
 
+#Fonction qui s'occupe de preparer la camera pour la nuit
 func wakeup():
 	for b in main.building:
 		b.start()
@@ -52,6 +55,7 @@ func start():
 	set_physics_process(true)
 	set_process_input(true)
 
+#Vérifie si le joueur a perdu
 func batDestroy():
 	var loose = true
 	for b in main.building:
@@ -65,6 +69,7 @@ func batDestroy():
 		stop()
 		web.request("http://" + main.ip + ":3000/INSERT_SCORE?nom=" + main.joueur + "&score=" + str(main.j))
 
+#Vérifie si la nuit est terminé
 func zombieDead():
 	if main.zombies.size() == 0:
 		$"../../ChoixCarte/Camera".jour()

@@ -12,6 +12,6 @@ func _on_Button3_pressed():
 	if $"VBoxContainer/LineEdit".text.length() >= 7:
 		main.ip = $VBoxContainer/LineEdit.text
 
-func _on_HTTPRequest_request_completed(result, response_code, headers, body):
+func _on_HTTPRequest_request_completed(_result, _response_code, _headers, body):
 	main.json = JSON.parse(body.get_string_from_utf8()).result
 	var _ignored = get_tree().change_scene("res://Scenes/GUI/TopScore.tscn")

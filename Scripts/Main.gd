@@ -1,4 +1,5 @@
-extends Spatial
+extends Node
+#Script qui sotck les informations
 
 var population = 10
 var buildRessource = 100

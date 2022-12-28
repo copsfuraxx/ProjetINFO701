@@ -27,9 +27,6 @@ func _ready():
 		elif(carte["type"] == "fight"):
 			for _i in range(carte["nbrCarte"]):
 				deck.append(FightBatCarte.new(id, carte["name"], carte["cost"], carte["img"], carte["worker"], carte["vie"], carte["degat"]))
-#		elif(carte["type"] == "event"):
-#			for _i in range(carte["nbrCarte"]):
-#				deck.append(EventCard.new(id, carte["name"], carte["cost"]))
 		id += 1
 	get_node("/root/Main").deck = deck
 	randomize()

@@ -17,6 +17,7 @@ var timer = spawn_time
 func _ready():
 	connect("dead", get_node("../CameraNuit"), "zombieDead")
 
+#Gére les deplacement et les attaque du zombie
 func _physics_process(delta):
 	match etat:
 		Etat.spawn:
@@ -52,6 +53,7 @@ func _physics_process(delta):
 					etat = Etat.walk
 					animation.travel("WALK")
 
+#Trouve un batimetn à attacker
 func getCible():
 	if cible != null and cible.vie == 0:
 		cible = null
@@ -67,6 +69,7 @@ func getCible():
 	if cible != null:
 		look_at(cible.translation, Vector3.UP)
 
+#Fonction qui gère quand le zombie prend un coup
 func hit(dammage):
 	main.zombies.remove(main.zombies.find(self))
 	emit_signal("dead")

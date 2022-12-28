@@ -10,10 +10,12 @@ var timer:float = 1.0
 onready var main = get_node("/root/Main")
 var cible:KinematicBody = null
 
+#initialize le batiment
 func _ready():
 	connect("destroy", get_node("../CameraNuit"), "batDestroy")
 	stop()
 
+#gere le combat si le batiment est un batiment de combat
 func _physics_process(delta):
 	if cart is FightBatCarte:
 		if cible == null:
@@ -27,6 +29,7 @@ func _physics_process(delta):
 		else:
 			timer -= delta
 
+#lie la carte au batiment
 func setCart(c:BatCard):
 	vie = c.vie
 	cart = c
@@ -46,9 +49,11 @@ func dead():
 	visible = false
 	$CollisionShape.disabled = true
 
+#demare la physique
 func start():
 	set_physics_process(true)
 
+#arrete la physique
 func stop():
 	set_physics_process(false)
 

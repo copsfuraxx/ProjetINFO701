@@ -11,13 +11,13 @@ var case
 var draged = true
 var main
 
+#initialize la camera
 func _ready():
 	ray = $RayCast
 	main = get_node("/root/Main")
 	stop()
 
-#Fonction appelé quand il y a un événement d'entrée
-#Gere le mouvement de la camera, le chois de la position pour le batiment et la validation
+#Gere le tactil
 func _input(event):
 	if event is InputEventScreenDrag:
 		if event.relative.length() > 1:
@@ -30,6 +30,7 @@ func _input(event):
 			ray.cast_to = project_ray_normal(event.position) * 10
 			ray.enabled = true
 
+#Gere le mouvement de la camera, le chois de la position pour le batiment et la validation
 func _physics_process(_delta):
 	if ray.is_colliding():
 		ray.enabled = false
@@ -49,7 +50,7 @@ func _physics_process(_delta):
 			$"../../ChoixCarte/Camera".wakeup()
 			stop()
 
-#Fonction qui s'occupe de preparer la camera pour la costruction d'un batiment
+#Fonction qui s'occupe de preparer la camera pour la construction d'un batiment
 func wakeup(b):
 	build = b
 	make_current()
@@ -62,10 +63,12 @@ func wakeup(b):
 	$"../Node".visible = true
 	start()
 
+#demare la physique
 func stop():
 	set_physics_process(false)
 	set_process_input(false)
 
+#arrete la physique
 func start():
 	set_physics_process(true)
 	set_process_input(true)

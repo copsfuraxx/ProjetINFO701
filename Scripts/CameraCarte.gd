@@ -1,4 +1,5 @@
 extends Camera
+#Script qui gère la camera lors du choix des cartes
 
 enum Etat{ Main, Carte_Selected}
 
@@ -13,10 +14,12 @@ var hand = []
 
 onready var scene = preload("res://Scenes/Carte.tscn")
 
+#initialise la camera
 func _ready():
 	ray = $RayCast
 	ray.enabled = false
 
+#Gere le tactil
 func _input(event):
 	if event is InputEventScreenTouch:
 		if !draged and !ray.enabled:
@@ -35,6 +38,7 @@ func _input(event):
 	if event is InputEventScreenTouch and !event.is_pressed():
 		mouse_position = null
 
+#Gere le choix de la  carte, la validation et passer le tour
 func _physics_process(delta):
 	if hand.size() == 0:
 		nuit()
@@ -78,6 +82,7 @@ func _physics_process(delta):
 		elif ray.enabled:
 			reset()
 
+#le drag and drop d'une carte
 func drag(delta):
 	if ray.is_colliding() and ray.get_collider().is_in_group("Carte"):
 		card = ray.get_collider()
@@ -93,6 +98,7 @@ func drag(delta):
 	elif draged:
 		timer += delta
 
+#reinitilize la camera et la carte
 func reset():
 	card.reset(true)
 	card = null
@@ -102,26 +108,31 @@ func reset():
 	ray.enabled = false
 	draged = false
 
+#Fonction qui s'occupe de preparer la camera pour le choix de carte
 func wakeup():
 	make_current()
 	$"..".visible = true
 	start()
 
+#arrete la physique, les input et la vue
 func stop():
 	set_physics_process(false)
 	set_process_input(false)
 	$"..".visible = false
 
+#demare la physique et les input
 func start():
 	set_physics_process(true)
 	set_process_input(true)
 
+#demare la nuit
 func nuit():
 	stop()
 #	$"../../DirectionalLight".light_energy = 0.01
 	$"../../WorldEnvironment".environment = preload("res://night_environment.tres")
 	$"../../Camp/CameraNuit".wakeup()
 
+#demarre le jour
 func jour():
 	main.j += 1
 	for b in main.building:
