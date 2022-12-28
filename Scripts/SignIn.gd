@@ -8,7 +8,7 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 		$PopupDialog.popup_centered(get_viewport_rect().size/2)
 	else:
 		main.joueur = $LineEdit.text
-		var _ignored = get_tree().change_scene("res://Scenes/Main.tscn")
+	var _ignored = get_tree().change_scene("res://Scenes/Main.tscn")
 
 func _on_Button_pressed():
 	$HTTPRequest.request("http://" + main.ip + ":3000/INSERT_USER?nom=" + $LineEdit.text)
